@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       :root{
+            --color-primary:rgb(29, 86, 29);
+            --color-light:rgb(29, 86, 29);
+            --color-dark:rgb(29, 86, 29);
+            --color-white:rgb(29, 86, 29);
+        }
+            
+        *,
+        *::before,
+        *::after{
+            margin: 0;
+            padding: 0;
+            box-sizing: inherit;
+            
+
+        }
+            
+        body{
+            box-sizing:  border-box;
+            font-family: sans-serif;
+            min-height: 100vh;
+        }
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: var(--color-primary);
+            padding: 0 10%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 1000;
+        }
+        .logo {
+            font-size: 25px;
+            text-transform: uppercase;
+            color: antiquewhite;
+            font-weight: 700;
+    
+        }
+        .navigation ul {
+            list-style: none;
+
+        }
+        .header .navigation ul li {
+            float:  left;
+            position: relative;
+        }
+        .header .navigation ul li a {
+            font-size: 20px;
+            text-decoration: none;
+            color: white;
+            padding: 20px;
+            display: block;
+            transition: all 2s ease;
+        }
+        .header .navigation ul li a:hover {
+            background-color: black;
+        }
+        .header .navigation ul li ul {
+            position: absolute;
+            right: 0;
+            width: 300px;
+           background-color: aqua;
+           display: none;
+
+        }
+        .header .navigation ul li ul li a {
+        font-size: 15px;
+        text-transform: capitalize;
+        }
+           .header .navigation ul li ul li  ul{
+           position: absolute;
+           top: 0;
+           right: 300px;
+
+           }
+           .header .navigation ul li ul li {
+            width: 100%;
+            border-top: 1px solid black;
+            color: red;
+        
+           }
+           .header .navigation ul li:hover >ul{
+            display: initial;
+           }
+           .header .navigation ul li ul li span{
+            float: right;
+            color: pink;
+            background-color: blueviolet;
+            padding: 5px 10px;
+            font-size: 12px;
+            text-align: center;
+            border-radius: 5px;
+
+           }
+           #toggle, 
+           .header label{
+            display: none;
+
+           }
+           img{
+            width: 45px;
+            height: 35px;
+           }
+           @media(max-width: 950px){
+            .header label{
+                display: initial;
+            }
+            .header{
+                padding: 20px 10%;
+            }
+            .header .navigation{
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: blue;
+                display: none;
+            }
+            .header .navigation ul li{
+                width: 100%;
+                border-top: 1px solid gold;
+
+            }
+            .header .navigation ul li a{
+                padding: 8px 30px 8px 10%;
+            }
+            .header .navigation ul li ul{
+                position: relative;
+                width: 100%;
+                left: 0;
+            }
+            .header .navigation ul li ul li ul{
+                position: relative;
+                width: 100%;
+                left: 0;
+            }
+            .header .navigation ul li ul li{
+                background-color: rgb(234, 101, 12);
+            }
+            .header .navigation ul li ul li span{
+                padding: 4px 10px;
+                font-size: 10px;
+            }
+            #toggle:checked ~ .navigation{
+            display: block;
+           }
+           }
+         
+        .hero {
+        
+            min-height: 100vh;
+            background: linear-gradient(rgb(0,0,.4)),(rgb(0,0,0,.4));
+           background-image: url('img/hero.jpg');
+           background-repeat: no-repeat;
+           background-size: cover;
+         }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">Dropdown</div>
+        <input type="checkbox"id="toggle">
+        <label for="toggle"><img src="img\pk_insta.jpg" alt="menu"></label>
+        <nav class="navigation">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a>
+
+                    <ul>
+                        <li><a href="">Html<span>30 posts</span>2</a></li>
+                        <li><a href="">Css<span>30 posts</span>3</a></li>
+                        <li><a href="">JS<span>30 posts</span>4</a></li>
+                        <li><a href="">Php</a>
+                            <ul>
+                                <li><a href="">Html<span>30 posts</span>2</a></li>
+                                <li><a href="">Css<span>30 posts</span>3</a></li>
+                                <li><a href="">JS<span>30 posts</span>4</a></li>
+                                <li><a href="">Php<span>30 posts</span>5</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    </li>
+                  
+              
+                <li><a href="#">Blog</a>
+                <ul>
+                    <li><a href="">Html<span>30 posts</span>2</a></li>
+                    <li><a href="">Css<span>30 posts</span>3</a></li>
+                    <li><a href="">JS<span>30 posts</span>4</a></li>
+                    <li><a href="">Php<span>30 posts</span>5</a></li>
+                </ul>
+                </li>
+                <li><a href="#">Contact</a></li>
+                
+            </ul>
+        </nav>
+    </header>
+    <div class="hero"></div>
+</body>
+</html>
